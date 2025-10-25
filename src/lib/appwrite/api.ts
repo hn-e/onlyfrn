@@ -1,6 +1,6 @@
 import { ID, Query } from "appwrite";
 
-import { appwriteConfig, account, databases, storage, avatars } from "./config";
+import { appwriteConfig, account, databases, storage } from "./config";
 import { IUpdatePost, INewPost, INewUser, IUpdateUser } from "@/types";
 
 // ============================================================
@@ -19,7 +19,9 @@ export async function createUserAccount(user: INewUser) {
 
     if (!newAccount) throw Error;
 
-    const avatarUrl = avatars.getInitials(user.name);
+    // const avatarUrl = avatars.getInitials(user.name);
+    const randomNumber = Math.floor(Math.random() * 49) + 1;
+    const avatarUrl = new URL(`https://avatar.iran.liara.run/public/${randomNumber}`);
 
     const newUser = await saveUserToDB({
       accountId: newAccount.$id,
