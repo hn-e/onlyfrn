@@ -75,7 +75,7 @@ const Profile = () => {
             <div className={`${user.id !== currentUser.$id && "hidden"}`}>
               <Link
                 to={`/update-profile/${currentUser.$id}`}
-                className={`h-12 bg-dark-4 px-5 text-light-1 flex-center gap-2 rounded-lg ${
+                className={`h-12 bg-dark-4 px-5 text-light-1 flex-center gap-2 rounded ${
                   user.id !== currentUser.$id && "hidden"
                 }`}>
                 <img
@@ -102,7 +102,7 @@ const Profile = () => {
         <div className="flex max-w-5xl w-full">
           <Link
             to={`/profile/${id}`}
-            className={`profile-tab rounded-l-lg ${
+            className={`profile-tab rounded ${
               pathname === `/profile/${id}` && "!bg-dark-3"
             }`}>
             <img
@@ -115,7 +115,7 @@ const Profile = () => {
           </Link>
           <Link
             to={`/profile/${id}/liked-posts`}
-            className={`profile-tab rounded-r-lg ${
+            className={`profile-tab rounded ${
               pathname === `/profile/${id}/liked-posts` && "!bg-dark-3"
             }`}>
             <img
